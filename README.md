@@ -43,4 +43,4 @@ Ce projet de visualisation des données vise à explorer l’histoire des pires 
 
 Ces données sont aussi utilisées par les spectateurs pour se renseigner sur les films avant de les voir et affiner leurs choix en fonction des avis critiques et populaires.
 
-![alt text]([http://url/to/img.png](https://public.tableau.com/static/images/Da/DataPlusMoviesStarterDashboard_16996607947340/AdamSandlerFilmography/4_3.png ))
+Beaucoup d'inspirations pour notre sujet peuvent être trouvée sur le site de Tableau [https://www.tableau.com/gallery/data-plus-movies(https://www.tableau.com/gallery/data-plus-movies)]
