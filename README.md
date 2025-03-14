@@ -48,3 +48,24 @@ Beaucoup d'inspirations pour notre sujet peuvent être trouvée sur le site de T
 Voici d'autres inspirations pour les visuel envisagés:
 ![https://public.tableau.com/static/images/Da/DataPlusMoviesStarterDashboard_16996607947340/AdamSandlerFilmography/4_3.png](https://github.com/vinceheig/WOAT-CINEMA/blob/main/inspirations/4_3.png?raw=true)
 ![https://public.tableau.com/static/images/AL/ALLABOUTPEDRO/TSP/4_3_hd.png](https://github.com/vinceheig/WOAT-CINEMA/blob/main/inspirations/4_3_hd.png?raw=true)
+
+##Wireframe
+![https://github.com/vinceheig/WOAT-CINEMA/blob/main/Wireframe/Wireframe-WOAT_CINEMA.jpg](https://github.com/vinceheig/WOAT-CINEMA/blob/main/Wireframe/Wireframe-WOAT_CINEMA.jpg)
+L'image se trouve dans le dossier wireframe pour voir les interaction de manière plus lisible
+
+**Structure générale de la dataviz**
+- Les différentes visualisations sont présenté sous forme de slides
+- On peut passer à la slide suivante à l'aide d'une flèche cliquable
+- Une barre de progression nous montre sur quel slide on se trouve et permet de naviguer librement entre les visualisation
+- Les contenus affichés varient entre des graphiques, textes et images avec des descriptions
+
+**Flèche a droite de l'écran**
+- Donne la possibilité de passer à la page suivante
+
+**Barre de progression en bas de l'écran**
+- Sorte de fil d’ariane qui permet à l’utilisateur de conster le nombre de graphique à découvrir et de se naviguer entre les diver pages (cliquable pour passer au graphique voulu)
+
+**Page de récapitulation**
+- Page de recap avec tous les graphiques et la possibilité de recommencer à la page 1 en cliquant sur le bouton de retour ou la barre de progression
+- Cliquer sur les différents visuels/graphiques sur la page de récapitulation permet de les agrandir sur une pop-up
+
