@@ -49,7 +49,8 @@ Voici d'autres inspirations pour les visuel envisagés:
 ![https://public.tableau.com/static/images/Da/DataPlusMoviesStarterDashboard_16996607947340/AdamSandlerFilmography/4_3.png](https://github.com/vinceheig/WOAT-CINEMA/blob/main/inspirations/4_3.png?raw=true)
 ![https://public.tableau.com/static/images/AL/ALLABOUTPEDRO/TSP/4_3_hd.png](https://github.com/vinceheig/WOAT-CINEMA/blob/main/inspirations/4_3_hd.png?raw=true)
 
-#Wireframe
+**Wireframe**
+
 ![https://github.com/vinceheig/WOAT-CINEMA/blob/main/Wireframe/Wireframe-WOAT_CINEMA.jpg](https://github.com/vinceheig/WOAT-CINEMA/blob/main/Wireframe/Wireframe-WOAT_CINEMA.jpg)
 L'image se trouve dans le dossier wireframe pour voir les interaction de manière plus lisible
 
