@@ -70,3 +70,11 @@ L'image se trouve dans le dossier wireframe pour voir les interaction de manièr
 - Page de recap avec tous les graphiques et la possibilité de recommencer à la page 1 en cliquant sur le bouton de retour ou la barre de progression
 - Cliquer sur les différents visuels/graphiques sur la page de récapitulation permet de les agrandir sur une pop-up
 
+**Composants principaux**
+
+Voici les composants principaux envisagés pour l'ensemble du site
+
+![https://github.com/vinceheig/WOAT-CINEMA/blob/main/Wireframe/Main_components_Woat_Cinema.png](https://github.com/vinceheig/WOAT-CINEMA/blob/main/Wireframe/Main_components_Woat_Cinema.png)
+
+
+
