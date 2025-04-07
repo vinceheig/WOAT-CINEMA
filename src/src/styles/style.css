@@ -1,0 +1,814 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --coral: #FF6F61;
+    --neon-green: #00FF85;
+    --black: #000000;
+    --text-color: #1A1A1A;
+}
+
+body {
+    font-family: 'Circular Std', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--coral);
+    color: var(--text-color);
+    overflow: hidden;
+}
+
+/* Styles des slides */
+.slides-container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.4, 0.0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--coral);
+    overflow: hidden;
+}
+
+.slide.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+/* Styles de la page d'accueil */
+.welcome-content {
+    text-align: left;
+    padding: 4rem;
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    max-width: 1400px;
+}
+
+.text-container {
+    position: relative;
+    margin-bottom: 2rem;
+    max-width: 800px;
+}
+
+.main-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    line-height: 1.1;
+    text-align: left;
+    text-transform: lowercase;
+}
+
+.main-title br {
+    display: block;
+    content: "";
+    margin-bottom: 0.2rem;
+}
+
+.description {
+    font-size: 1.2rem;
+    line-height: 1.4;
+    color: var(--text-color);
+    text-align: left;
+    margin-top: 1rem;
+    opacity: 0.9;
+    font-weight: 400;
+}
+
+/* Éléments décoratifs */
+.decorative-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    perspective: 1000px;
+}
+
+.wiggle, .pixel, .shape {
+    position: absolute;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+    transform-style: preserve-3d;
+}
+
+.wiggle {
+    animation: float 8s ease-in-out infinite;
+    filter: brightness(1.1) contrast(1.1);
+}
+
+.pixel {
+    animation: float 10s ease-in-out infinite;
+    filter: brightness(1.2) contrast(1.2);
+}
+
+.shape {
+    animation: float 12s ease-in-out infinite;
+    filter: brightness(1.3) contrast(1.3);
+}
+
+.wiggle-1 {
+    top: 15%;
+    right: 20%;
+    width: 220px;
+    animation-delay: -2s;
+}
+
+.wiggle-2 {
+    bottom: 25%;
+    left: 15%;
+    width: 200px;
+    animation-delay: -4s;
+}
+
+.pixel-1 {
+    top: 35%;
+    left: 30%;
+    width: 120px;
+    animation-delay: -1s;
+}
+
+.pixel-2 {
+    bottom: 30%;
+    right: 25%;
+    width: 140px;
+    animation-delay: -3s;
+}
+
+.shape-1 {
+    top: 45%;
+    left: 45%;
+    width: 280px;
+    animation-delay: -5s;
+}
+
+/* Animation des éléments décoratifs */
+@keyframes float {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(0) scale(1);
+    }
+    50% {
+        transform: translate3d(0, -20px, 40px) rotate(5deg) scale(1.05);
+    }
+    100% {
+        transform: translate3d(0, 0, 0) rotate(0) scale(1);
+    }
+}
+
+/* Bouton modernisé */
+.next-button {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--text-color);
+    color: var(--coral);
+    border: none;
+    padding: 16px 32px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-top: 2rem;
+    border-radius: 100px;
+    position: relative;
+    overflow: hidden;
+}
+
+.next-button:hover {
+    transform: scale(1.05);
+    background: var(--neon-green);
+    color: var(--text-color);
+}
+
+.button-text {
+    position: relative;
+    z-index: 1;
+}
+
+.button-arrow {
+    position: relative;
+    z-index: 1;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.next-button:hover .button-arrow {
+    transform: translateX(6px);
+}
+
+/* Navigation dots */
+.nav-dots {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 1rem;
+    z-index: 5;
+}
+
+.nav-dot {
+    width: 50px;
+    height: 4px;
+    background: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-dot.active {
+    background: var(--text-color);
+}
+
+/* Animations */
+@keyframes glowPulse {
+    0%, 100% {
+        filter: drop-shadow(0 0 5px var(--neon-green));
+    }
+    50% {
+        filter: drop-shadow(0 0 15px var(--neon-green));
+    }
+}
+
+@keyframes lineFlow {
+    0% {
+        transform: scaleX(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scaleX(1);
+        opacity: 1;
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.5rem;
+    }
+    
+    .description {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+}
+
+/* Styles des graphiques */
+.bar {
+    fill: #ff4b4b;
+    transition: fill 0.3s ease;
+}
+
+.bar:hover {
+    fill: #ff7b7b;
+}
+
+.axis text {
+    fill: #ffffff;
+}
+
+.axis line, .axis path {
+    stroke: #ffffff;
+    stroke-opacity: 0.2;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Styles pour les images décoratives */
+.decorative-images {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.deco-image {
+    position: absolute;
+    opacity: 0;
+    filter: brightness(0.8) contrast(1.2);
+    transform-origin: center;
+}
+
+.deco-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.deco-image-1 {
+    width: 200px;
+    height: 300px;
+    top: 10%;
+    left: 5%;
+    transform: rotate(-15deg);
+}
+
+.deco-image-2 {
+    width: 250px;
+    height: 350px;
+    top: 20%;
+    right: 8%;
+    transform: rotate(10deg);
+}
+
+.deco-image-3 {
+    width: 180px;
+    height: 260px;
+    bottom: 15%;
+    left: 15%;
+    transform: rotate(5deg);
+}
+
+.deco-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255, 107, 107, 0.2), rgba(78, 205, 196, 0.2));
+    mix-blend-mode: overlay;
+    z-index: 1;
+}
+
+/* Animation de flottement améliorée */
+@keyframes floatingImage {
+    0% {
+        transform: translate(0, 0) rotate(var(--rotation));
+    }
+    25% {
+        transform: translate(10px, -10px) rotate(calc(var(--rotation) + 2deg));
+    }
+    50% {
+        transform: translate(-5px, 15px) rotate(calc(var(--rotation) - 1deg));
+    }
+    75% {
+        transform: translate(-10px, -5px) rotate(calc(var(--rotation) + 1deg));
+    }
+    100% {
+        transform: translate(0, 0) rotate(var(--rotation));
+    }
+}
+
+/* Effet de grain */
+.grain-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyBAMAAADsEZWCAAAAGFBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANxM8mAAAACHRSTlMzMzMzMzMzM85JBgUAAAA1SURBVDjLY2CgNhg1wgjjRxgjGiQYI7vR6RGGEMaREVwR/hFGEfGREVwR/hFGEfGREVxRNRMASqG4OdXmk+YAAAAASUVORK5CYII=');
+    opacity: 0.05;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    z-index: 4;
+}
+
+/* Effet de parallaxe au survol */
+@keyframes parallaxMove {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(0);
+    }
+    100% {
+        transform: translate3d(var(--moveX), var(--moveY), var(--moveZ)) rotate(var(--rotation));
+    }
+}
+
+/* Styles pour la deuxième slide */
+#worst-movies-slide {
+    background: var(--black);
+    position: relative;
+    overflow: hidden;
+}
+
+#worst-movies-slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(0, 255, 133, 0.15), transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.chart-content {
+    width: 100%;
+    max-width: 1200px;
+    padding: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.chart-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 2rem;
+    opacity: 0;
+    transform: translateY(30px);
+    text-shadow: 0 0 10px rgba(0, 255, 133, 0.5);
+}
+
+.chart-container {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    opacity: 0;
+    transform: translateY(30px);
+    border: 1px solid rgba(0, 255, 133, 0.2);
+    box-shadow: 0 0 20px rgba(0, 255, 133, 0.1);
+}
+
+/* Éléments décoratifs pour le graphique */
+#worst-movies-slide .decorative-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    perspective: 1000px;
+}
+
+.pixel-chart-1 {
+    position: absolute;
+    top: 20%;
+    right: 25%;
+    width: 120px;
+    animation: floatChart 8s ease-in-out infinite;
+    animation-delay: -2s;
+}
+
+.pixel-chart-2 {
+    position: absolute;
+    bottom: 30%;
+    left: 20%;
+    width: 140px;
+    animation: floatChart 10s ease-in-out infinite;
+    animation-delay: -4s;
+}
+
+.shape-chart {
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    width: 180px;
+    animation: floatChart 12s ease-in-out infinite;
+    animation-delay: -1s;
+}
+
+.floral-1 {
+    position: absolute;
+    bottom: 20%;
+    right: 15%;
+    width: 220px;
+    animation: floatChart 9s ease-in-out infinite;
+    animation-delay: -3s;
+    filter: hue-rotate(180deg) brightness(1.3);
+}
+
+.graphics-1 {
+    position: absolute;
+    top: 40%;
+    right: 20%;
+    width: 160px;
+    animation: floatChart 11s ease-in-out infinite;
+    animation-delay: -2s;
+    filter: hue-rotate(90deg) brightness(1.2);
+}
+
+@keyframes floatChart {
+    0% {
+        transform: translate3d(0, 0, 20px) rotate(0) scale(1);
+        filter: brightness(1.2) contrast(1.2) hue-rotate(var(--hue-rotate, 0deg));
+    }
+    50% {
+        transform: translate3d(-15px, -15px, 40px) rotate(5deg) scale(1.05);
+        filter: brightness(1.4) contrast(1.4) hue-rotate(calc(var(--hue-rotate, 0deg) + 20deg));
+    }
+    100% {
+        transform: translate3d(0, 0, 20px) rotate(0) scale(1);
+        filter: brightness(1.2) contrast(1.2) hue-rotate(var(--hue-rotate, 0deg));
+    }
+}
+
+/* Styles des barres du graphique */
+.bar {
+    fill: white;
+    transition: all 0.3s ease;
+    transform-origin: left;
+    opacity: 0;
+}
+
+.bar:hover {
+    fill: var(--neon-green);
+    filter: drop-shadow(0 0 8px var(--neon-green));
+}
+
+.bar.animate {
+    animation: barReveal 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes barReveal {
+    from {
+        transform: scaleX(0);
+        opacity: 0;
+    }
+    to {
+        transform: scaleX(1);
+        opacity: 1;
+    }
+}
+
+/* Styles des axes et labels */
+.axis text {
+    fill: white;
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.axis text.animate {
+    opacity: 1;
+}
+
+.axis line, .axis path {
+    stroke: rgba(255, 255, 255, 0.2);
+}
+
+/* Animation d'entrée pour le graphique */
+.chart-container.animate {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.chart-title.animate {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Navigation arrows repositionnés */
+.navigation-arrows {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.nav-arrow {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 2rem;
+    color: white;
+    opacity: 0.6;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: auto;
+    z-index: 10;
+}
+
+.prev-arrow {
+    left: 2rem;
+}
+
+.next-arrow {
+    right: 2rem;
+}
+
+.nav-arrow:hover {
+    opacity: 1;
+    color: var(--neon-green);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.nav-arrow svg {
+    width: 48px;
+    height: 48px;
+    filter: drop-shadow(0 0 10px currentColor);
+}
+
+/* Nouveaux éléments décoratifs */
+.neon-line {
+    position: absolute;
+    opacity: 0.8;
+    mix-blend-mode: screen;
+    filter: brightness(1.2) contrast(1.2);
+    animation: neonPulse 4s ease-in-out infinite;
+}
+
+.neon-line-1 {
+    top: 10%;
+    right: -5%;
+    width: 300px;
+    transform: rotate(45deg);
+    animation-delay: -2s;
+}
+
+.neon-line-2 {
+    bottom: 15%;
+    left: -10%;
+    width: 400px;
+    transform: rotate(-30deg);
+    animation-delay: -1s;
+}
+
+@keyframes neonPulse {
+    0%, 100% {
+        opacity: 0.8;
+        filter: brightness(1.2) contrast(1.2) hue-rotate(0deg);
+    }
+    50% {
+        opacity: 0.6;
+        filter: brightness(1.4) contrast(1.4) hue-rotate(45deg);
+    }
+}
+
+/* Mise à jour des styles des axes */
+.axis line, .axis path {
+    stroke: rgba(255, 255, 255, 0.2);
+}
+
+/* Mise à jour des animations des éléments décoratifs */
+#worst-movies-slide .decorative-elements img {
+    filter: brightness(1.2) contrast(1.2) hue-rotate(180deg);
+    opacity: 0.6;
+    mix-blend-mode: screen;
+}
+
+/* Effet de grain modifié pour le fond sombre */
+#worst-movies-slide .grain-overlay {
+    opacity: 0.08;
+    background-blend-mode: color-dodge;
+}
+
+/* Styles pour la troisième slide (Récapitulatif) */
+#recap-slide {
+    background: var(--black);
+    position: relative;
+    overflow: hidden;
+}
+
+#recap-slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 111, 97, 0.15), transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.recap-content {
+    width: 100%;
+    max-width: 1200px;
+    padding: 2rem;
+    position: relative;
+    z-index: 2;
+    color: white;
+}
+
+.recap-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    text-shadow: 0 0 10px rgba(255, 111, 97, 0.5);
+}
+
+.recap-container {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 3rem;
+    opacity: 0;
+    transform: translateY(30px);
+    border: 1px solid rgba(255, 111, 97, 0.2);
+    box-shadow: 0 0 20px rgba(255, 111, 97, 0.1);
+}
+
+.recap-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 111, 97, 0.1);
+}
+
+.stat-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    opacity: 0.8;
+}
+
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--coral);
+    text-shadow: 0 0 10px rgba(255, 111, 97, 0.5);
+}
+
+.recap-message {
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 1.4rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+/* Animations pour le récapitulatif */
+.recap-title.animate {
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.recap-container.animate {
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
+}
+
+.stat-item.animate {
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.stat-item:nth-child(1) { animation-delay: 0.4s; }
+.stat-item:nth-child(2) { animation-delay: 0.6s; }
+.stat-item:nth-child(3) { animation-delay: 0.8s; }
+
+/* Mise à jour des éléments décoratifs pour la troisième slide */
+#recap-slide .floral-2 {
+    bottom: -10%;
+    right: -5%;
+    width: 300px;
+    transform: rotate(30deg);
+    opacity: 0.4;
+    filter: hue-rotate(90deg) brightness(1.3);
+}
+
+#recap-slide .graphics-2 {
+    top: -5%;
+    left: -5%;
+    width: 250px;
+    transform: rotate(-15deg);
+    opacity: 0.4;
+    filter: hue-rotate(180deg) brightness(1.2);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+} 

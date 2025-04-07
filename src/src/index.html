@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WOAT Cinema - Worst Of All Time</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+</head>
+<body>
+    <!-- Effet de grain global -->
+    <div class="grain-overlay"></div>
+
+    <div class="slides-container">
+        <!-- Slide 1: Page d'accueil -->
+        <div class="slide active" id="welcome-slide">
+            <!-- Éléments décoratifs -->
+            <div class="decorative-elements">
+                <img src="./assets/images/GREEN_WIGGLE2 1.png" alt="" class="wiggle wiggle-1">
+                <img src="./assets/images/SILVER_WIGGLE2 1.png" alt="" class="wiggle wiggle-2">
+                <img src="./assets/images/RED_PIXEL.png" alt="" class="pixel pixel-1">
+                <img src="./assets/images/LAVENDER_PIXEL.png" alt="" class="pixel pixel-2">
+                <img src="./assets/images/GREEN_SHAPE2.png" alt="" class="shape shape-1">
+            </div>
+
+            <div class="welcome-content">
+                <div class="text-container">
+                    <h1 class="main-title">Worst of all time<br>cinema</h1>
+                    <p class="description">Découvrez le pire du cinéma! ➜</p>
+                    <button class="next-button">
+                        <span class="button-text">Suivant</span>
+                        <svg class="button-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Navigation dots -->
+            <div class="nav-dots">
+                <div class="nav-dot active"></div>
+                <div class="nav-dot"></div>
+                <div class="nav-dot"></div>
+                <div class="nav-dot"></div>
+                <div class="nav-dot"></div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Graphique des pires films -->
+        <div class="slide" id="worst-movies-slide">
+            <!-- Éléments décoratifs -->
+            <div class="decorative-elements">
+                <img src="./assets/images/SILVER_WIGGLE2 1.png" alt="" class="neon-line neon-line-1">
+                <img src="./assets/images/RED_PIXEL.png" alt="" class="pixel pixel-chart-1">
+                <img src="./assets/images/LAVENDER_PIXEL.png" alt="" class="pixel pixel-chart-2">
+                <img src="./assets/images/GREEN_SHAPE2.png" alt="" class="shape shape-chart">
+                <img src="./assets/images/Floral.png" alt="" class="floral floral-1">
+                <img src="./assets/images/Graphics 1.png" alt="" class="graphics graphics-1">
+                <img src="./assets/images/GREEN_WIGGLE2 1.png" alt="" class="neon-line neon-line-2">
+            </div>
+
+            <!-- Navigation arrows -->
+            <div class="navigation-arrows">
+                <button class="nav-arrow prev-arrow">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                        <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <button class="nav-arrow next-arrow">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="chart-content">
+                <h2 class="chart-title">Les Pires Films de Tous les Temps</h2>
+                <div class="chart-container" id="chart-container"></div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Récapitulatif -->
+        <div class="slide" id="recap-slide">
+            <!-- Éléments décoratifs -->
+            <div class="decorative-elements">
+                <img src="src/assets/SILVER_WIGGLE2 1.png" alt="" class="neon-line neon-line-1">
+                <img src="src/assets/GREEN_WIGGLE2 1.png" alt="" class="neon-line neon-line-2">
+                <img src="src/assets/Floral.png" alt="" class="floral floral-2">
+                <img src="src/assets/Graphics 1.png" alt="" class="graphics graphics-2">
+            </div>
+
+            <!-- Navigation arrows -->
+            <div class="navigation-arrows">
+                <button class="nav-arrow prev-arrow">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                        <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="recap-content">
+                <h2 class="recap-title">Récapitulatif</h2>
+                <div class="recap-container">
+                    <div class="recap-stats">
+                        <div class="stat-item">
+                            <h3>Note moyenne</h3>
+                            <p class="stat-value average">--★</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>Pire film</h3>
+                            <p class="stat-value worst-movie">--</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>Année</h3>
+                            <p class="stat-value year">----</p>
+                        </div>
+                    </div>
+                    <div class="recap-message">
+                        <p>Félicitations ! Vous avez survécu à cette plongée dans les abysses du cinéma. 🎬</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./scripts/welcome.js"></script>
+    <script src="./scripts/visualization.js"></script>
+    <script src="./scripts/navigation.js"></script>
+    <script src="./scripts/dataProcessor.js"></script>
+</body>
+</html>
