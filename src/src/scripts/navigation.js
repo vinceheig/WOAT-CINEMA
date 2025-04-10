@@ -1,97 +1,104 @@
 document.addEventListener('DOMContentLoaded', () => {
     const slides = document.querySelectorAll('.slide');
-    const dots = document.querySelectorAll('.nav-dot');
+    const navDots = document.querySelectorAll('.nav-dot');
     const prevArrows = document.querySelectorAll('.prev-arrow');
     const nextArrows = document.querySelectorAll('.next-arrow');
-    const nextButtons = document.querySelectorAll('.next-button');
-    let currentSlide = 0;
-
-    // Fonction pour animer la transition entre les slides
-    function animateTransition(fromSlide, toSlide, direction) {
-        const tl = gsap.timeline();
+    const nextButton = document.querySelector('.next-button');
+    
+    let currentSlideIndex = 0;
+    
+    // Fonction pour naviguer vers une slide spécifique
+    function goToSlide(index) {
+        // S'assurer que l'index est valide
+        if (index < 0) index = 0;
+        if (index >= slides.length) index = slides.length - 1;
         
-        // Animation de sortie
-        tl.to(fromSlide, {
-            opacity: 0,
-            x: direction === 'next' ? '-100%' : '100%',
-            duration: 0.5,
-            ease: "power2.inOut"
+        // Mettre à jour l'index courant
+        currentSlideIndex = index;
+        
+        // Mettre à jour les classes des slides
+        slides.forEach((slide, i) => {
+            if (i === index) {
+                slide.classList.add('active');
+                slide.style.opacity = '1';
+                slide.style.visibility = 'visible';
+            } else {
+                slide.classList.remove('active');
+                slide.style.opacity = '0';
+                slide.style.visibility = 'hidden';
+            }
         });
-
-        // Animation d'entrée
-        tl.fromTo(toSlide,
-            {
-                opacity: 0,
-                x: direction === 'next' ? '100%' : '-100%'
-            },
-            {
-                opacity: 1,
-                x: '0%',
-                duration: 0.5,
-                ease: "power2.inOut"
-            },
-            "-=0.3"
-        );
-
-        // Mettre à jour les classes active
-        fromSlide.classList.remove('active');
-        toSlide.classList.add('active');
-
-        // Mettre à jour les points de navigation
-        dots[currentSlide].classList.remove('active');
-        dots[toSlide.dataset.index].classList.add('active');
+        
+        // Mettre à jour les dots de navigation
+        navDots.forEach((dot, i) => {
+            if (i === index) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
     }
-
-    // Fonction pour naviguer vers un slide spécifique
-    function goToSlide(index, direction) {
-        if (index < 0 || index >= slides.length || index === currentSlide) return;
-
-        const fromSlide = slides[currentSlide];
-        const toSlide = slides[index];
-
-        animateTransition(fromSlide, toSlide, direction);
-        currentSlide = index;
+    
+    // Fonction pour afficher une slide spécifique avec animations
+    function showSlide(index) {
+        const slides = document.querySelectorAll('.slide');
+        slides.forEach(slide => {
+            slide.classList.remove('active');
+            // Réinitialiser les animations si nécessaire
+            slide.querySelectorAll('.animate').forEach(el => {
+                el.classList.remove('animate');
+            });
+        });
+        
+        slides[index].classList.add('active');
+        
+        // Ajouter les animations pour la slide 3
+        if (slides[index].id === 'recap-slide') {
+            const elements = slides[index].querySelectorAll('.recap-title, .recap-container, .stat-item');
+            elements.forEach(el => el.classList.add('animate'));
+        }
     }
-
-    // Initialiser les index des slides
-    slides.forEach((slide, index) => {
-        slide.dataset.index = index;
+    
+    // Gestionnaire d'événements pour les dots de navigation
+    navDots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            goToSlide(index);
+        });
     });
-
-    // Event listeners pour les flèches de navigation
+    
+    // Gestionnaire d'événements pour les flèches précédentes
     prevArrows.forEach(arrow => {
         arrow.addEventListener('click', () => {
-            goToSlide(currentSlide - 1, 'prev');
+            goToSlide(currentSlideIndex - 1);
         });
     });
-
+    
+    // Gestionnaire d'événements pour les flèches suivantes
     nextArrows.forEach(arrow => {
         arrow.addEventListener('click', () => {
-            goToSlide(currentSlide + 1, 'next');
+            goToSlide(currentSlideIndex + 1);
         });
     });
-
-    // Event listeners pour les boutons "Suivant"
-    nextButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            goToSlide(currentSlide + 1, 'next');
+    
+    // Gestionnaire d'événements pour le bouton "Suivant"
+    if (nextButton) {
+        nextButton.addEventListener('click', () => {
+            goToSlide(currentSlideIndex + 1);
         });
-    });
-
-    // Event listeners pour les points de navigation
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            const direction = index > currentSlide ? 'next' : 'prev';
-            goToSlide(index, direction);
-        });
-    });
-
+    }
+    
     // Navigation au clavier
     document.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowLeft') {
-            goToSlide(currentSlide - 1, 'prev');
+            goToSlide(currentSlideIndex - 1);
         } else if (e.key === 'ArrowRight') {
-            goToSlide(currentSlide + 1, 'next');
+            goToSlide(currentSlideIndex + 1);
         }
     });
-}); 
+    
+    // Initialiser la première slide
+    goToSlide(0);
+    
+    // Exposer la fonction goToSlide globalement pour qu'elle puisse être utilisée par d'autres scripts
+    window.goToSlide = goToSlide;
+});

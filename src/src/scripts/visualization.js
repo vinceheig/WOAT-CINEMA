@@ -1,18 +1,9 @@
 // Création et animation du graphique
 document.addEventListener('DOMContentLoaded', () => {
     // Configuration des dimensions
-    const margin = { top: 40, right: 20, bottom: 40, left: 60 };
+    const margin = { top: 60, right: 30, bottom: 50, left: 60 };
     const width = 800 - margin.left - margin.right;
     const height = 400 - margin.top - margin.bottom;
-
-    // Données des films (à remplacer par vos données réelles)
-    const data = [
-        { title: "Plan 9 from Outer Space", rating: 2.1 },
-        { title: "Troll 2", rating: 2.5 },
-        { title: "Birdemic", rating: 1.8 },
-        { title: "Jack and Jill", rating: 3.3 },
-        { title: "Cats", rating: 2.7 }
-    ];
 
     // Création du SVG
     const svg = d3.select("#chart-container")
@@ -22,69 +13,155 @@ document.addEventListener('DOMContentLoaded', () => {
         .append("g")
         .attr("transform", `translate(${margin.left},${margin.top})`);
 
-    // Échelles
-    const x = d3.scaleLinear()
-        .domain([0, 5])
-        .range([0, width]);
+    // Données de test (en attendant les vraies données IMDB)
+    const testData = [
+        { year: 2017, count: 67 },
+        { year: 2018, count: 94 },
+        { year: 2019, count: 148 },
+        { year: 2020, count: 205 },
+        { year: 2021, count: 223 },
+        { year: 2022, count: 282 }
+    ];
 
-    const y = d3.scaleBand()
-        .domain(data.map(d => d.title))
-        .range([0, height])
-        .padding(0.3);
+    // Fonction pour créer et animer le graphique
+    function createChart() {
+        // Échelles
+        const x = d3.scaleBand()
+            .range([0, width])
+            .domain(testData.map(d => d.year))
+            .padding(0.1); // Réduire l'espace entre les barres
 
-    // Axes
-    const xAxis = svg.append("g")
-        .attr("class", "axis x-axis")
-        .attr("transform", `translate(0,${height})`)
-        .call(d3.axisBottom(x));
+        const y = d3.scaleLinear()
+            .range([height, 0])
+            .domain([0, d3.max(testData, d => d.count)]);
 
-    const yAxis = svg.append("g")
-        .attr("class", "axis y-axis")
-        .call(d3.axisLeft(y));
+        // Couleurs pour les barres (correspondant à l'image)
+        const colors = [
+            '#E5B8FF', // violet clair
+            '#FFA161', // orange
+            '#47D7B3', // vert turquoise
+            '#FF6B6B', // rouge
+            '#61B3FF', // bleu
+            '#FFB8B8'  // rose clair
+        ];
 
-    // Création des barres
-    const bars = svg.selectAll(".bar")
-        .data(data)
-        .enter()
-        .append("rect")
-        .attr("class", "bar")
-        .attr("y", d => y(d.title))
-        .attr("height", y.bandwidth())
-        .attr("x", 0)
-        .attr("width", d => x(d.rating));
+        // Axes
+        // Axe X
+        svg.append("g")
+            .attr("transform", `translate(0,${height})`)
+            .call(d3.axisBottom(x))
+            .call(g => g.select(".domain").remove()) // Enlever la ligne de l'axe
+            .selectAll("text")
+            .style("text-anchor", "middle")
+            .style("font-size", "12px")
+            .style("fill", "#000000");
 
-    // Animation des éléments lors de l'apparition de la slide
-    function animateChart() {
-        const chartSlide = document.getElementById('worst-movies-slide');
-        if (!chartSlide.classList.contains('active')) return;
+        // Axe Y
+        svg.append("g")
+            .call(d3.axisLeft(y))
+            .call(g => g.select(".domain").remove()) // Enlever la ligne de l'axe
+            .call(g => g.selectAll(".tick line").remove()) // Enlever les lignes des ticks
+            .selectAll("text")
+            .style("font-size", "12px")
+            .style("fill", "#000000");
 
-        // Animer le titre
-        document.querySelector('.chart-title').classList.add('animate');
+        // Titre du graphique
+        svg.append("text")
+            .attr("x", width / 2)
+            .attr("y", -margin.top / 2)
+            .attr("text-anchor", "middle")
+            .style("font-size", "24px")
+            .style("fill", "#000000")
+            .text("Nombre de mauvais films par année");
 
-        // Animer le conteneur
-        document.querySelector('.chart-container').classList.add('animate');
+        // Sous-titre du graphique
+        svg.append("text")
+            .attr("x", width / 2)
+            .attr("y", -margin.top / 2 + 30)
+            .attr("text-anchor", "middle")
+            .style("font-size", "18px")
+            .style("fill", "#000000")
+            .text("Dans une période récente de 5 ans");
 
-        // Animer les barres avec délai
-        bars.each(function(d, i) {
-            const bar = d3.select(this);
-            setTimeout(() => {
-                bar.classed('animate', true);
-            }, i * 100);
-        });
+        // Ajuster les marges pour centrer le graphique
+        const chartWidth = width + margin.left + margin.right;
+        const chartHeight = height + margin.top + margin.bottom;
+        
+        // Centrer le conteneur SVG
+        d3.select("#chart-container")
+            .style("display", "flex")
+            .style("justify-content", "center")
+            .style("align-items", "center")
+            .style("height", "100%");
 
-        // Animer les textes des axes
-        svg.selectAll('.axis text').each(function(d, i) {
-            setTimeout(() => {
-                d3.select(this).classed('animate', true);
-            }, i * 50);
+        // Création des barres avec effet de dégradé
+        const bars = svg.selectAll(".bar")
+            .data(testData)
+            .enter()
+            .append("rect")
+            .attr("class", "bar")
+            .attr("x", d => x(d.year))
+            .attr("width", x.bandwidth())
+            .attr("y", height)
+            .attr("height", 0)
+            .style("fill", (d, i) => colors[i])
+            .style("opacity", 0.8)
+            .style("cursor", "pointer")
+            .on("click", function(event, d) {
+                // Navigation vers la slide correspondante
+                const slideIndex = d.year - 2017; // Calcul de l'index basé sur l'année
+                goToSlide(slideIndex + 2); // +2 car on commence à la slide 2
+            });
+
+        // Ajout des valeurs sur les barres
+        const labels = svg.selectAll(".label")
+            .data(testData)
+            .enter()
+            .append("text")
+            .attr("class", "label")
+            .attr("x", d => x(d.year) + x.bandwidth() / 2)
+            .attr("y", height)
+            .attr("text-anchor", "middle")
+            .style("fill", "#000000")
+            .style("font-size", "20px")
+            .style("font-weight", "bold")
+            .text(d => d.count)
+            .style("opacity", 0);
+
+        // Animation des barres
+        bars.transition()
+            .duration(800)
+            .delay((d, i) => i * 100)
+            .attr("y", d => y(d.count))
+            .attr("height", d => height - y(d.count));
+
+        // Animation des labels
+        labels.transition()
+            .duration(800)
+            .delay((d, i) => i * 100)
+            .attr("y", d => y(d.count) - 10)
+            .style("opacity", 1);
+
+        // Interaction au survol
+        bars.on('mouseover', function(event, d) {
+            d3.select(this)
+                .transition()
+                .duration(200)
+                .style("opacity", 1);
+        })
+        .on('mouseout', function(event, d) {
+            d3.select(this)
+                .transition()
+                .duration(200)
+                .style("opacity", 0.8);
         });
     }
 
-    // Observer les changements de slide
+    // Créer le graphique lorsque la slide devient active
     const observer = new MutationObserver((mutations) => {
         mutations.forEach((mutation) => {
             if (mutation.target.classList.contains('active')) {
-                animateChart();
+                createChart();
             }
         });
     });
@@ -93,43 +170,5 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(chartSlide, {
         attributes: true,
         attributeFilter: ['class']
-    });
-
-    // Interaction à la souris pour les barres
-    bars.on('mouseover', function() {
-        const bar = d3.select(this);
-        gsap.to(bar.node(), {
-            scaleY: 1.1,
-            duration: 0.3,
-            ease: "power2.out"
-        });
-    }).on('mouseout', function() {
-        const bar = d3.select(this);
-        gsap.to(bar.node(), {
-            scaleY: 1,
-            duration: 0.3,
-            ease: "power2.out"
-        });
-    });
-
-    // Animation des éléments décoratifs
-    const decorativeElements = document.querySelectorAll('#worst-movies-slide .decorative-elements img');
-    
-    decorativeElements.forEach((element, index) => {
-        gsap.from(element, {
-            opacity: 0,
-            scale: 0,
-            rotation: "random(-180, 180)",
-            x: "random(-100, 100)",
-            y: "random(-100, 100)",
-            duration: 1.5,
-            delay: 0.1 * index,
-            ease: "elastic.out(1, 0.3)",
-            scrollTrigger: {
-                trigger: "#worst-movies-slide",
-                start: "top center",
-                toggleActions: "play none none reverse"
-            }
-        });
     });
 }); 
