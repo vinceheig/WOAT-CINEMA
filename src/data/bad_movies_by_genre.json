@@ -1,0 +1,110 @@
+[
+    {
+        "platform": "Comedy",
+        "value": 5762
+    },
+    {
+        "platform": "Drama",
+        "value": 3600
+    },
+    {
+        "platform": "Action",
+        "value": 2833
+    },
+    {
+        "platform": "Horror",
+        "value": 2782
+    },
+    {
+        "platform": "Adventure",
+        "value": 2323
+    },
+    {
+        "platform": "Short",
+        "value": 2046
+    },
+    {
+        "platform": "Talk-Show",
+        "value": 1439
+    },
+    {
+        "platform": "Animation",
+        "value": 1269
+    },
+    {
+        "platform": "Documentary",
+        "value": 1248
+    },
+    {
+        "platform": "Thriller",
+        "value": 1205
+    },
+    {
+        "platform": "Romance",
+        "value": 1089
+    },
+    {
+        "platform": "Reality-TV",
+        "value": 1020
+    },
+    {
+        "platform": "Family",
+        "value": 917
+    },
+    {
+        "platform": "Sci-Fi",
+        "value": 756
+    },
+    {
+        "platform": "News",
+        "value": 745
+    },
+    {
+        "platform": "Crime",
+        "value": 673
+    },
+    {
+        "platform": "Music",
+        "value": 605
+    },
+    {
+        "platform": "Fantasy",
+        "value": 542
+    },
+    {
+        "platform": "Mystery",
+        "value": 451
+    },
+    {
+        "platform": "History",
+        "value": 401
+    },
+    {
+        "platform": "Game-Show",
+        "value": 366
+    },
+    {
+        "platform": "Biography",
+        "value": 283
+    },
+    {
+        "platform": "Sport",
+        "value": 203
+    },
+    {
+        "platform": "Adult",
+        "value": 201
+    },
+    {
+        "platform": "War",
+        "value": 126
+    },
+    {
+        "platform": "Musical",
+        "value": 111
+    },
+    {
+        "platform": "Western",
+        "value": 77
+    }
+]

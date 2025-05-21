@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worst of All time cinema</title>
+    <link rel="stylesheet" href="./styles/globe.css">
+    <link rel="stylesheet" href="./styles/chartBar.css">
+    <link rel="stylesheet" href="styles/introChartBar.css">
+    <link rel="stylesheet" href="styles/falling-text.css">
+    <link rel="stylesheet" href="styles/bar.css">
+    <link rel="stylesheet" href="styles/introBar.css">
+    <link rel="stylesheet" href="styles/text.css">
+    <link rel="stylesheet" href="styles/introGlobe.css" />
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="slide1">
+        <div class="container">
+            <h1 class="title">Worst of All time cinema</h1>
+            <p class="subtitle">Découvrez le pire du cinéma!</p>
+            <button class="next-button">SUIVANT</button>
+        </div>
+    </div>
+    <div class="BarGraph">
+
+    </div>
+    <div class="slide2">
+        <h1 class="main-title">Chaque année, des dizaines de films sombrent dans l'échec...</h1>
+
+        <div class="chart-slide">
+            <div class="navigation-arrows">
+                <div class="arrow arrow-left">&#10094;</div>
+                <div class="arrow arrow-right">&#10095;</div>
+            </div>
+
+            <div class="chart-container">
+                <div class="chart-content">
+                    <div id="bar-chart"></div>
+                </div>
+            </div>
+
+            <p class="chart-subtitle">Vous pensiez que 2019 était une mauvaise année pour le cinéma ? Attendez de voir
+                le reste!</p>
+        </div>
+    </div>
+    <div class="slide3">
+        <div class="container">
+            <div id="falling-text"></div>
+            <div class="chevron chevron-left">&lt;</div>
+            <div class="chevron chevron-right">&gt;</div>
+        </div>
+    </div>
+    <div class="slide4">
+        <div class="navigation-arrow left-arrow">&lt;</div>
+        <div class="navigation-arrow right-arrow">&gt;</div>
+        <div class="container">
+            <h2 class="number-label">Nombre de genres couramment utilisés</h2>
+            <div class="number">20</div>
+            <div class="subtitle"> Tous les genres sont concernés par les échecs, du documentaire à la comédie en
+                passant par la science-fiction</div>
+            <svg id="circle-container"></svg>
+        </div>
+    </div>
+    <div class="slide5">
+        <div id="chart-container"></div>
+        <span id="left-chevron" class="nav-chevron">&lt;</span>
+        <span id="right-chevron" class="nav-chevron">&gt;</span>
+    </div>
+    <div class="slide6">
+        <div class="container">
+            <div id="animated-title"></div>
+        </div>
+    </div>
+    <div class="slide7">
+        <div class="container">
+            <h1 class="title">Films produits chaque année dans le monde</h1>
+            <p class="subtitle">Les échecs, eux, n’ont pas de frontière</p>
+            <div class="number">0</div>
+            <svg id="dots-container"></svg>
+            <div class="navigation-arrow left-arrow">&lt;</div>
+            <div class="navigation-arrow right-arrow">&gt;</div>
+        </div>
+    </div>
+    <div class="slide8">
+        <div class="globe-slide">
+            <div class="globe-content">
+                <h2 class="globe-title">Du Hollywood aux studios internationaux : les échecs sont partout</h2>
+                <h3 class="globe-subtitle">Films avec une note inférieure à 4/10 (1900-2024)</h3>
+                <div class="globe-container">
+                    <div id="globe-visualization"></div>
+                    <div class="globe-legend">
+                        <div class="legend-item">
+                            <span class="legend-color highest"></span>
+                            <span class="legend-text">Plus de 200 films</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color high"></span>
+                            <span class="legend-text">101-200 films</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color medium-high"></span>
+                            <span class="legend-text">51-100 films</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color medium"></span>
+                            <span class="legend-text">21-50 films</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color low"></span>
+                            <span class="legend-text">11-20 films</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color lowest"></span>
+                            <span class="legend-text">1-10 films</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-arrow nav-prev">&lt;</div>
+            <div class="nav-arrow nav-next">&gt;</div>
+
+            <!-- Tooltip pour les informations au survol -->
+            <div id="globe-tooltip" class="globe-tooltip">
+                <h3 class="country-name"></h3>
+                <p class="country-stats"></p>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./scripts/introChartBar.js"></script>
+<script src="./scripts/chartBar.js"></script>
+<script src="./scripts/falling-text.js"></script>
+<script src="./scripts/bar.js" type="module"></script>
+<script src="./scripts/introBar.js"></script>
+<script src="scripts/text.js"></script>
+<script src="./scripts/introGlobe.js"></script>
+<script type="module" src="./scripts/globe.js"></script>
+</html>

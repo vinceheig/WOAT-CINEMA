@@ -1,0 +1,23 @@
+{
+  "name": "globe-visualization",
+  "version": "1.0.0",
+  "description": "Visualisation des mauvais films dans le monde",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "start": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview",
+    "convert-data": "node convert-data.js"
+  },
+  "dependencies": {
+    "d3": "^7.0.0",
+    "topojson-client": "^3.1.0"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}

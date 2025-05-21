@@ -1,0 +1,65 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a1a;
+    font-family: 'Manrope', sans-serif;
+}
+
+#chart-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1a1a1a;
+}
+
+.bar-chart {
+    width: 100%;
+    height: 100%;
+}
+
+.bar-label {
+    fill: black;
+    font-size: 72px;
+    font-family: 'Manrope', sans-serif;
+    font-weight: normal;
+}
+
+.bar-title {
+    fill: black;
+    font-size: 32px;
+    font-weight: bold;
+    font-family: 'Manrope', sans-serif;
+}
+
+.chart-title {
+    font-family: 'Manrope', sans-serif;
+    font-size: 72px;
+    font-weight: bold;
+    fill: white;
+}
+
+/* Styles pour les chevrons de navigation */
+.nav-chevron {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 64px; /* Taille des chevrons augmentée */
+    color: rgba(255, 255, 255, 0.7); /* Couleur blanche avec 70% d'opacité */
+    cursor: pointer;
+    z-index: 10;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.nav-chevron:hover {
+    opacity: 1; /* Opacité à 100% au survol */
+}
+
+#left-chevron {
+    left: 40px; /* Position à 40px du bord gauche (était 20px) */
+}
+
+#right-chevron {
+    right: 40px; /* Position à 40px du bord droit (était 20px) */
+}

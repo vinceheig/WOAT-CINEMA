@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #9c03d8;
+  font-family: "Manrope", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  text-align: center;
+  padding: 2rem;
+  font-family: "Inconsolata";
+  src: url("https://ggayane.github.io/css-experiments/Inconsolata-VF.ttf");
+  font-weight: 275 900;
+  font-stretch: 50% 200%;
+}
+
+.title {
+  color: white;
+  font-size: 8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  line-height: 1.2;
+  display: inline-block;
+}
