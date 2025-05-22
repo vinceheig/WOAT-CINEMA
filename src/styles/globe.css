@@ -152,32 +152,6 @@ body {
     stroke-width: 1;
 }
 
-/* Navigation arrows */
-.nav-arrow {
-    position: fixed;
-    top: 50%;
-    transform: translateY(-50%);
-    color: white;
-    opacity: 0.7;
-    font-size: 4.5rem;  /* Augmenté de 3rem à 4.5rem */
-    cursor: pointer;
-    user-select: none;
-    transition: opacity 0.3s ease;
-    z-index: 1000;
-}
-
-.nav-arrow:hover {
-    opacity: 1;
-}
-
-.nav-prev {
-    left: 5%;  /* Changé de 2rem à 5% */
-}
-
-.nav-next {
-    right: 5%;  /* Changé de 2rem à 5% */
-}
-
 /* Responsive design */
 @media (max-width: 768px) {
     .globe-title {

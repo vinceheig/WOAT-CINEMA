@@ -139,16 +139,6 @@ async function createBarChart() {
                     .attr('stroke', 'none');
             });
     
-        // Add click handlers for navigation arrows
-        document.querySelector('.arrow-left').addEventListener('click', () => {
-            console.log('Navigate to previous slide');
-            // Navigation logic would go here
-        });
-    
-        document.querySelector('.arrow-right').addEventListener('click', () => {
-            console.log('Navigate to next slide');
-            // Navigation logic would go here
-        });
     }, 2000);
 }
 

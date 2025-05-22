@@ -1,24 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Statistiques</title>
+    <link rel="stylesheet" href="styles/introBar.css">
+    <link rel="stylesheet" href="styles/navigation.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/introBar.css">
     <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
+
 <body>
-    <div class="navigation-arrow left-arrow">&lt;</div>
-    <div class="navigation-arrow right-arrow">&gt;</div>
     <div class="container">
+        <div class="navigation-arrow left-arrow">&lt;</div>
+        <div class="navigation-arrow right-arrow">&gt;</div>
         <h2 class="number-label">Nombre de genres couramment utilisés</h2>
         <div class="number">20</div>
-        <div class="subtitle"> Tous les genres sont concernés par les échecs, du documentaire à la comédie en passant par la science-fiction</div>
+        <div class="subtitle"> Tous les genres sont concernés par les échecs, du documentaire à la comédie en passant
+            par la science-fiction</div>
         <svg id="circle-container"></svg>
     </div>
-    <script src="./scripts/introBar.js"></script>
 </body>
+<script src="./scripts/navigation.js"></script>
+<script src="./scripts/introBar.js"></script>
+
 </html>

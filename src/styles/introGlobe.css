@@ -69,26 +69,26 @@ body {
     text-align: center;
 }
 
-.navigation-arrow {
-  position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 6rem;
-  cursor: pointer;
-  user-select: none;
-  z-index: 1000;
-  transition: opacity 0.3s ease;
+.globe-container {
+    position: relative;
+    margin: 0 auto;
+    width: 800px;
+    height: 600px;
 }
 
-.navigation-arrow:hover {
-  color: rgba(255, 255, 255, 1);
-}
+/* Responsive design */
+@media (max-width: 768px) {
+    .globe-title {
+        font-size: 2rem;
+    }
 
-.left-arrow {
-  left: 40px; /* Modifié de 20px à 40px */
-}
+    .globe-container {
+        height: 400px;
+    }
 
-.right-arrow {
-  right: 40px; /* Modifié de 20px à 40px */
+    .globe-legend {
+        bottom: 1rem;
+        right: 1rem;
+        padding: 0.5rem;
+    }
 }

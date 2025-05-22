@@ -4,7 +4,7 @@
 async function loadDataFromJSON() {
     try {
         console.log("Tentative de chargement des données JSON...");
-        const response = await fetch('../asset/IMDB_DATASET/bad_movies_by_country.json');
+        const response = await fetch('../data/bad_movies_by_country.json');
         
         if (!response.ok) {
             console.warn("Fichier JSON non trouvé, utilisation des données d'exemple à la place");

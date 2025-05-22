@@ -3,7 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
     nextButton.addEventListener('click', () => {
         // Ici, vous pourrez ajouter la logique de navigation vers la page suivante
-        console.log('Navigation vers la page suivante');
+       window.location.href = './chartBar.html';
+       sessionStorage.setItem('currentSlideIndex', 1); // Mettez à jour l'index de la diapositive actuelle
         // window.location.href = 'next-page.html';
     });
 });

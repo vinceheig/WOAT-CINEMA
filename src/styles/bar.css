@@ -19,6 +19,48 @@ body, html {
     height: 100%;
 }
 
+.bar {
+    fill: #4CAF50;
+    transition: fill 0.3s ease;
+}
+
+.bar:hover {
+    fill: #45a049;
+}
+
+.axis-label {
+    font-size: 12px;
+    fill: #666;
+}
+
+.tick text {
+    font-size: 10px;
+    fill: #666;
+}
+
+.tick line {
+    stroke: #ddd;
+}
+
+.domain {
+    stroke: #ddd;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .bar-chart {
+        height: 300px;
+    }
+    
+    .axis-label {
+        font-size: 10px;
+    }
+    
+    .tick text {
+        font-size: 8px;
+    }
+}
+
 .bar-label {
     fill: black;
     font-size: 72px;
@@ -38,28 +80,4 @@ body, html {
     font-size: 72px;
     font-weight: bold;
     fill: white;
-}
-
-/* Styles pour les chevrons de navigation */
-.nav-chevron {
-    position: fixed;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 64px; /* Taille des chevrons augmentée */
-    color: rgba(255, 255, 255, 0.7); /* Couleur blanche avec 70% d'opacité */
-    cursor: pointer;
-    z-index: 10;
-    transition: opacity 0.3s ease-in-out;
-}
-
-.nav-chevron:hover {
-    opacity: 1; /* Opacité à 100% au survol */
-}
-
-#left-chevron {
-    left: 40px; /* Position à 40px du bord gauche (était 20px) */
-}
-
-#right-chevron {
-    right: 40px; /* Position à 40px du bord droit (était 20px) */
 }

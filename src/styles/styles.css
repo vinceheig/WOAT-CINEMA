@@ -57,29 +57,25 @@ body {
     filter: brightness(1.2);
 }
 
-.navigation-arrow {
-    position: fixed;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 4.5rem;  /* Taille augmentée */
-    color: white;
-    cursor: pointer;
-    padding: 20px;
-    user-select: none;
-    opacity: 0.6;
-    transition: all 0.3s ease;  /* Transition sur toutes les propriétés */
+
+.chart-subtitle {
+    font-size: 18px;
+    margin-top: 20px;
 }
 
-.navigation-arrow:hover {
-    opacity: 1;
-    transform: translateY(-50%) scale(1.2);  /* Effet d'agrandissement au hover */
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);  /* Effet de lueur au hover */
-}
+/* Responsive design */
+@media (max-width: 768px) {
+    .chart-container {
+        padding: 15px;
+        height: 400px;
+    }
 
-.left-arrow {
-    left: 30px;
-}
+    .chart-title {
+        font-size: 22px;
+    }
 
-.right-arrow {
-    right: 30px;
+    .chart-subtitle {
+        font-size: 18px;
+        margin-top: 20px;
+    }
 }

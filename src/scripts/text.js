@@ -1,5 +1,5 @@
 const title = "CARTOGRAPHIE\nDU FLOP";
-const container = d3.select("#animated-title");
+const cont = d3.select("#animated-title");
 const width = window.innerWidth;
 const height = window.innerHeight;
 
@@ -11,7 +11,7 @@ const config = {
 };
 
 // Création du conteneur principal
-const main = container.append("main")
+const main = cont.append("main")
     .style("width", config.containerWidth)
     .style("margin", "auto")
     .style("white-space", "nowrap");
