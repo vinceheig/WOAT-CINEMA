@@ -1,0 +1,170 @@
+body {
+    overflow-y: hidden; /* Empêche le défilement vertical */
+}
+
+/* Styles pour la slide du globe */
+.globe-slide {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #9C03D8;
+    color: white;
+}
+
+.globe-content {
+    text-align: center;
+}
+
+.globe-title {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: white;
+    font-family: 'Manrope', sans-serif;
+}
+
+.globe-subtitle {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: #cccccc;
+    font-weight: normal;
+    font-family: 'Manrope', sans-serif;
+}
+
+.globe-container {
+    position: relative;
+    margin: 0 auto;
+    width: 800px;
+    height: 600px;
+}
+
+#globe-visualization {
+    cursor: grab;
+}
+
+#globe-visualization:active {
+    cursor: grabbing;
+}
+
+.globe-legend {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 10;
+    font-family: 'Manrope', sans-serif;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.legend-color {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border-radius: 3px;
+}
+
+.legend-color.highest {
+    background-color: #ff0000;
+}
+
+.legend-color.high {
+    background-color: #ff3333;
+}
+
+.legend-color.medium-high {
+    background-color: #ff6600;
+}
+
+.legend-color.medium {
+    background-color: #ff9933;
+}
+
+.legend-color.low {
+    background-color: #ffcc99;
+}
+
+.legend-color.lowest {
+    background-color: #ffe6e6;
+}
+
+.legend-text {
+    font-size: 14px;
+}
+
+.globe-tooltip {
+    position: absolute;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    pointer-events: none;
+    z-index: 20;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    min-width: 150px;
+    text-align: left;
+}
+
+.globe-tooltip .country-name {
+    margin: 0 0 5px 0;
+    font-size: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 5px;
+}
+
+.globe-tooltip .country-stats {
+    margin: 0;
+    font-size: 14px;
+}
+
+.country {
+    stroke: #666;
+    stroke-width: 0.5;
+    transition: fill 0.2s;
+}
+
+.country:hover {
+    fill-opacity: 0.8;
+    stroke: #fff;
+    stroke-width: 1;
+}
+
+.ocean {
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+}
+
+.globe-outline {
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.3));
+}
+
+/* Points de concentration */
+.concentration-point {
+    fill: #FF4B4B;
+    stroke: #FFF;
+    stroke-width: 1;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .globe-title {
+        font-size: 2rem;
+    }
+
+    .globe-container {
+        height: 400px;
+    }
+
+    .globe-legend {
+        bottom: 1rem;
+        right: 1rem;
+        padding: 0.5rem;
+    }
+}

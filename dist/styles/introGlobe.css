@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap');
+
+body {
+    font-family: 'Manrope', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #9C03D8;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    font-size: 36px;
+    font-weight: 600;
+    color: #FFFFFF;
+    margin-bottom: 16px;
+    text-align: center;
+    margin-top: 0; /* Ensure no extra space at top */
+}
+
+.subtitle {
+    font-size: 20px;
+    color: #FFFFFF;
+    margin: 0 0 40px 0;
+    opacity: 0.8;
+    text-align: center;
+}
+
+#dots-container {
+    width: 80%;
+    max-width: 1200px;
+    height: 400px;
+    margin: 0 auto;
+    display: block;
+    overflow: visible;
+    margin-top: 80px; /* Increased from 40px to 80px to move dots further down */
+    position: relative;
+    z-index: 1; /* Ajouter un z-index plus bas */
+}
+
+.number {
+    font-size: 200px;
+    font-weight: 800;
+    color: #9CCF65; /* Changed color to green */
+    margin: 0px 0 40px 0;
+    line-height: 1;
+    text-align: center;
+    position: relative;
+    z-index: 2; /* Ajouter un z-index plus élevé */
+}
+
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Changed from center to flex-start */
+    min-height: 100vh;
+    padding-top: 60px; /* Added padding-top to move content up */
+}
+
+.title, .subtitle, .number {
+    width: 100%;
+    text-align: center;
+}
+
+.globe-container {
+    position: relative;
+    margin: 0 auto;
+    width: 800px;
+    height: 600px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .globe-title {
+        font-size: 2rem;
+    }
+
+    .globe-container {
+        height: 400px;
+    }
+
+    .globe-legend {
+        bottom: 1rem;
+        right: 1rem;
+        padding: 0.5rem;
+    }
+}

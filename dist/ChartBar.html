@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Échecs cinématographiques</title>
+    <link rel="stylesheet" href="./styles/navigation.css">
+    <link rel="stylesheet" href="./styles/chartBar.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1 class="main-title">Chaque année, des dizaines de films sombrent dans l'échec...</h1>
+    
+    <div class="container">
+        <div class="navigation-arrows">
+            <div class="nav-arrow nav-prev">&#10094;</div>
+            <div class="nav-arrow nav-next">&#10095;</div>
+        </div>
+        
+        <div class="chart-container">
+            <div class="chart-content">
+                <div id="bar-chart"></div>
+            </div>
+        </div>
+        
+        <p class="chart-subtitle">Vous pensiez que 2019 était une mauvaise année pour le cinéma ? Attendez de voir le reste!</p>
+    </div>
+    <script src="./scripts/navigation.js"></script>
+    <script src="./scripts/chartBar.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+/* Unified Navigation Arrows */
+/* Styles des slides */
+[class^="slide"] {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+}
+
+[class^="slide"].active {
+    display: block;
+    opacity: 1;
+}
+
+.BarGraph {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+}
+
+.BarGraph.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Navigation Arrows */
+body .nav-arrow {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size: 4rem;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    padding: 15px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+}
+
+.nav-arrow:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.nav-prev {
+    left: 5%;
+}
+
+.nav-next {
+    right: 5%;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .nav-arrow {
+        font-size: 3rem;
+        width: 60px;
+        height: 60px;
+        padding: 10px;
+    }
+
+    .nav-prev {
+        left: 20px;
+    }
+
+    .nav-next {
+        right: 20px;
+    }
+}

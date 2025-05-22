@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Du Hollywood aux studios internationaux : les échecs sont partout</title>
+    <link rel="stylesheet" href="./styles/globe.css">
+    <link rel="stylesheet" href="./styles/navigation.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://unpkg.com/topojson-client@3"></script>
+</head>
+<body>
+    <div class="globe-slide">
+        <div class="globe-content">
+            <h2 class="globe-title">Du Hollywood aux studios internationaux : les échecs sont partout</h2>
+            <h3 class="globe-subtitle">Films avec une note inférieure à 4/10 (1900-2024)</h3>
+            <div class="globe-container">
+                <div id="globe-visualization"></div>
+                <div class="globe-legend">
+                    <div class="legend-item">
+                        <span class="legend-color highest"></span>
+                        <span class="legend-text">Plus de 200 films</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color high"></span>
+                        <span class="legend-text">101-200 films</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color medium-high"></span>
+                        <span class="legend-text">51-100 films</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color medium"></span>
+                        <span class="legend-text">21-50 films</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color low"></span>
+                        <span class="legend-text">11-20 films</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color lowest"></span>
+                        <span class="legend-text">1-10 films</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="nav-arrow nav-prev">&lt;</div>
+        <div class="nav-arrow nav-next">&gt;</div>
+        
+        <!-- Tooltip pour les informations au survol -->
+        <div id="globe-tooltip" class="globe-tooltip">
+            <h3 class="country-name"></h3>
+            <p class="country-stats"></p>
+        </div>
+    </div>
+
+    <script type="module" src="./scripts/globe.js"></script>
+    <script type="module" src="./scripts/navigation.js"></script>
+</body>
+</html>
