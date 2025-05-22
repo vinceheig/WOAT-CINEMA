@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "vite",
     "start": "vite --host",
-    "build": "vite build",
+    "build": "vite build src --emptyOutDir",
     "preview": "vite preview",
     "convert-data": "node convert-data.js"
   },

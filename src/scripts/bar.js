@@ -1,5 +1,3 @@
-import * as d3 from 'd3';
-
 // Données simplifiées avec des pourcentages qui s'additionnent à 100%
 // const data = [ ... ]; // Supprimé
 

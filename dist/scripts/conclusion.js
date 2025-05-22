@@ -1,5 +1,4 @@
-import * as d3 from 'd3';
-
+import * as d3 from "../../node_modules/d3";
 // Effet de fond : halo lumineux mouvant
 const canvas = document.getElementById('bg-effect');
 const ctx = canvas.getContext('2d');
