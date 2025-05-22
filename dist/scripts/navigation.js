@@ -106,6 +106,17 @@ function updateNavigationArrows() {
 
 // Gestionnaire d'événements pour les flèches de navigation
 document.addEventListener("DOMContentLoaded", () => {
+  // Mettre à jour l'index courant basé sur l'URL actuelle
+  const currentIndex = getCurrentSlideIndex();
+  if (currentIndex !== -1) {
+    currentSlideIndex = currentIndex;
+    sessionStorage.setItem("currentSlideIndex", currentSlideIndex);
+  }
+
+  // Mettre à jour les flèches de navigation
+  updateNavigationArrows();
+
+  // Gestion des flèches de navigation
   const prevArrows = document.querySelectorAll(".nav-prev, .left-arrow");
   const nextArrows = document.querySelectorAll(
     ".nav-arrow.nav-next, .right-arrow, .next-button"
@@ -138,9 +149,6 @@ document.addEventListener("DOMContentLoaded", () => {
       navigateToSlide(currentSlideIndex + 1, "next");
     }
   });
-
-  // Mettre à jour les flèches au chargement
-  updateNavigationArrows();
 });
 
 const resetContainer = () => {
