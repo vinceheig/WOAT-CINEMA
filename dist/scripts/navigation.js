@@ -2,15 +2,15 @@ const container = document.getElementById("container");
 
 // Configuration des slides
 const slides = [
-  { id: "slide0", file: "./index.html" },
-  { id: "slide1", file: "./chartBar.html" },
-  { id: "slide2", file: "./fallingText.html" },
-  { id: "slide3", file: "./introBar.html" },
-  { id: "slide4", file: "./BarGraphique.html" },
-  { id: "slide5", file: "./TitleGlobeGraphique.html" },
-  { id: "slide6", file: "./introGlobe.html" },
-  { id: "slide7", file: "./globeGraphique.html" },
-  { id: "slide9", file: "./conclusion.html" },
+  { id: "slide0", file: "../index.html" },
+  { id: "slide1", file: "../chartBar.html" },
+  { id: "slide2", file: "../fallingText.html" },
+  { id: "slide3", file: "../introBar.html" },
+  { id: "slide4", file: "../BarGraphique.html" },
+  { id: "slide5", file: "../TitleGlobeGraphique.html" },
+  { id: "slide6", file: "../introGlobe.html" },
+  { id: "slide7", file: "../globeGraphique.html" },
+  { id: "slide9", file: "../conclusion.html" },
 ];
 
 // Fonction pour obtenir l'index du slide actuel
