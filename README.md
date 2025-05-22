@@ -1,4 +1,5 @@
 # WOAT-CINEMA
+Lien vers le site (render): <https://woat-cinema.onrender.com>
 - **Contexte : d'où viennent les données, qui les a créées et dans quel contexte**
 
 Les données recensées proviennent principalement de sites spécialisés dans le cinéma tels qu'IMDb et Rotten Tomatoes, afin d’identifier les tendances et les échecs cinématographiques. Certaines de ces sources sont également utilisées pour l’entraînement des intelligences artificielles, notamment sur des plateformes comme Kaggle.
