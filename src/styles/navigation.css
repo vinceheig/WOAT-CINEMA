@@ -83,3 +83,10 @@ body .nav-arrow {
         right: 20px;
     }
 }
+body .nav-arrow {
+    transition: transform 0.2s cubic-bezier(.77,0,.18,1), box-shadow 0.2s;
+}
+body .nav-arrow:hover {
+    transform: translateY(-50%) scale(1.12);
+    box-shadow: 0 0 16px 2px #fff2, 0 0 0 4px #9B6B9E44;
+}

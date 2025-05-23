@@ -1,5 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap');
 
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: linear-gradient(120deg, #2d0036 0%, #4b206b 100%);
+    animation: bg-move 8s ease-in-out infinite alternate;
+}
+
+@keyframes bg-move {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
 .conclusion-slide {
     position: relative;
     z-index: 2;
@@ -21,7 +34,20 @@
     text-align: center;
     color: white;
     opacity: 0;
-    text-shadow: 0 2px 16px rgba(0,0,0,0.45), 0 1px 0 #fff;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.45);
+    transform: translateY(40px);
+    animation: fadeInUp 1.1s cubic-bezier(.77,0,.18,1) 0.2s forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .conclusion-text {
@@ -30,19 +56,17 @@
     max-width: 800px;
     text-align: center;
     margin-bottom: 2rem;
-    text-shadow: 0 2px 12px rgba(0,0,0,0.35), 0 1px 0 #fff;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.35);
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeInUp 1.1s cubic-bezier(.77,0,.18,1) 0.7s forwards;
 }
 
 .conclusion-text p {
     margin-bottom: 1.5rem;
-    opacity: 0;
+    opacity: 1;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
 
 #bg-effect {
     position: fixed;
@@ -54,13 +78,14 @@ body {
     pointer-events: none;
     display: block;
 }
+
 .recommencer {
-    position: fixed; /* Fixe le bouton à un endroit précis de l'écran */
-    z-index: 10; /* Assurez-vous que ce z-index est supérieur à celui du canvas */
-    bottom: 50px; /* Distance par rapport au bas de l'écran */
-    left: 50%; /* Centre horizontalement */
-    transform: translateX(-50%); /* Centre le bouton par rapport à son propre centre */
-    background-color: #9B6B9E; /* Violet */
+    position: fixed;
+    z-index: 10;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #9B6B9E;
     color: white;
     border: none;
     padding: 15px 40px;

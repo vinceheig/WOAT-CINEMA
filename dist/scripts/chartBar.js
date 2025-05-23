@@ -50,74 +50,95 @@ async function createBarChart() {
         .domain([0, d3.max(chartData, d => d.value) * 1.1]) // Add 10% padding
         .range([height, 0]);
     
-    // Create X axis
+    // Axe X avec animation
     svg.append('g')
         .attr('class', 'axis')
         .attr('transform', `translate(0,${height})`)
         .call(d3.axisBottom(x))
         .selectAll('text')
-        .style('font-size', '12px');
+        .style('font-size', '12px')
+        .style('fill', '#fff')
+        .style('opacity', 0)
+        .transition()
+        .duration(1000)
+        .delay((d, i) => i * 200)
+        .style('opacity', 1);
     
-    // Create Y axis
+    // Axe Y avec animation
     svg.append('g')
         .attr('class', 'axis')
-        .call(d3.axisLeft(y).ticks(5));
+        .call(d3.axisLeft(y).ticks(5))
+        .selectAll('text')
+        .style('fill', '#fff')
+        .style('opacity', 0)
+        .transition()
+        .duration(1000)
+        .delay((d, i) => i * 200)
+        .style('opacity', 1);
     
-    // Add Y axis label
+    // Labels des axes avec animation
     svg.append('text')
         .attr('class', 'axis-label')
         .attr('transform', 'rotate(-90)')
         .attr('y', -margin.left + 20)
         .attr('x', -height / 2)
         .attr('text-anchor', 'middle')
-        .text('Nombres de mauvais films (< 3)');
+        .style('fill', '#fff')
+        .style('opacity', 0)
+        .text('Nombres de mauvais films (< 3)')
+        .transition()
+        .duration(1000)
+        .delay(1000)
+        .style('opacity', 1);
     
-    // Add X axis label
     svg.append('text')
         .attr('class', 'axis-label')
         .attr('y', height + margin.bottom - 10)
         .attr('x', width / 2)
         .attr('text-anchor', 'middle')
-        .text('Année');
+        .style('fill', '#fff')
+        .style('opacity', 0)
+        .text('Année')
+        .transition()
+        .duration(1000)
+        .delay(1000)
+        .style('opacity', 1);
     
-    // Animation function
-    function animateChart() {
-        // Create bars with animation
-        svg.selectAll('.bar')
-            .data(chartData)
-            .enter()
-            .append('rect')
-            .attr('class', 'bar')
-            .attr('x', d => x(d.year))
-            .attr('width', x.bandwidth())
-            .attr('y', height) // Start from bottom
-            .attr('height', 0) // Initial height 0
-            .attr('fill', d => d.color)
-            .transition()
-            .duration(1000)
-            .delay((d, i) => i * 200)
-            .attr('y', d => y(d.value))
-            .attr('height', d => height - y(d.value));
+    // Barres avec animation
+    svg.selectAll('.bar')
+        .data(chartData)
+        .enter()
+        .append('rect')
+        .attr('class', 'bar')
+        .attr('x', d => x(d.year))
+        .attr('width', x.bandwidth())
+        .attr('y', height)
+        .attr('height', 0)
+        .attr('fill', d => d.color)
+        .transition()
+        .duration(1000)
+        .delay((d, i) => i * 200)
+        .attr('y', d => y(d.value))
+        .attr('height', d => height - y(d.value));
     
-        // Add value labels after animation
-        setTimeout(() => {
-            svg.selectAll('.bar-label')
-                .data(chartData)
-                .enter()
-                .append('text')
-                .attr('class', 'bar-label')
-                .attr('x', d => x(d.year) + x.bandwidth() / 2)
-                .attr('y', d => y(d.value) + 25) // Position labels inside bars
-                .text(d => d.value)
-                .style('opacity', 0)
-                .transition()
-                .duration(500)
-                .style('opacity', 1);
-        }, 1500); // Delay after bars appear
-    }
-    
-    // Start animation
-    animateChart();
+    // Valeurs au-dessus des barres avec animation
+    svg.selectAll('.bar-value')
+        .data(chartData)
+        .enter()
+        .append('text')
+        .attr('class', 'bar-value')
+        .attr('x', d => x(d.year) + x.bandwidth() / 2)
+        .attr('y', height)
+        .attr('text-anchor', 'middle')
+        .style('fill', '#fff')
+        .style('font-size', '12px')
+        .style('opacity', 0)
+        .text(d => d.value)
+        .transition()
+        .duration(1000)
+        .delay((d, i) => i * 200 + 500)
+        .attr('y', d => y(d.value) - 10)
+        .style('opacity', 1);
     
     // Add interactivity
     setTimeout(() => {

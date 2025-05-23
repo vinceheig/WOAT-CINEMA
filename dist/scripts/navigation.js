@@ -7,9 +7,10 @@ const slides = [
   { id: "slide2", file: "../fallingText.html" },
   { id: "slide3", file: "../IntroBar.html" },
   { id: "slide4", file: "../BarGraphique.html" },
-  { id: "slide5", file: "../TitleGlobeGraphique.html" },
+  { id: "slide5", file: "../TitleIntroGlobe.html" },
   { id: "slide6", file: "../IntroGlobe.html" },
-  { id: "slide7", file: "../GlobeGraphique.html" },
+  { id: "slide7", file: "../TitleGlobeGraphique.html" },
+  { id: "slide8", file: "../GlobeGraphique.html" },
   { id: "slide9", file: "../conclusion.html" },
 ];
 

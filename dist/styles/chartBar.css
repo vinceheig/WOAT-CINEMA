@@ -3,7 +3,6 @@
     --background-color: #BAB5FB;
     --text-color: #000000;
 }
-
 .main-title {
     font-size: 3rem;
     font-weight: bold;
@@ -14,13 +13,11 @@
     color: var(--text-color);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 body {
     font-family: 'Manrope', sans-serif;
     background-color: var(--background-color);
@@ -34,7 +31,6 @@ body {
     align-items: center;
     justify-content: center;
 }
-
 .chart-slide {
     width: 100%;
     margin: 0;
@@ -46,7 +42,6 @@ body {
     height: auto;
     flex-shrink: 0;
 }
-
 .chart-container {
     width: 100%;
     max-width: 900px;
@@ -59,20 +54,17 @@ body {
     position: relative;
     z-index: 2;
 }
-
 .chart-content {
     height: 100%;
     display: flex;
     flex-direction: column;
 }
-
 .chart-title {
     font-size: 28px;
     font-weight: bold;
     margin-bottom: 20px;
     text-align: left;
 }
-
 .chart-subtitle {
     font-size: 22px;
     margin-top: 2rem;
@@ -80,57 +72,54 @@ body {
     text-align: center;
     max-width: 900px;
 }
-
 #bar-chart {
     flex-grow: 1;
     width: 100%;
 }
-
 /* Bar styles */
 .bar {
     opacity: 0.9;
     transition: opacity 0.3s;
 }
-
 .bar:hover {
     opacity: 1;
 }
-
 .bar-label {
     font-weight: bold;
     fill: white;
     text-anchor: middle;
 }
-
 .axis-label {
     font-size: 14px;
     fill: #555;
 }
-
 /* Axis styles */
 .axis path,
 .axis line {
     stroke: #ccc;
 }
-
-.axis text {
-    fill: #555;
-    font-size: 12px;
+.axis text,
+.axis-label,
+.bar-value,
+.bar-label {
+    fill: #111 !important;
+    color: #111 !important;
 }
-
+.title {
+    color: #222;
+}
 /* Responsive design */
 @media (max-width: 768px) {
     .chart-container {
         padding: 15px;
         height: 400px;
     }
-
     .chart-title {
         font-size: 22px;
     }
-
     .chart-subtitle {
         font-size: 18px;
         margin-top: 20px;
     }
 }
+ 

@@ -1,17 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Worst of All time cinema</title>
+    <title>WOAT CINEMA – Worst of All Time</title>
     <link rel="stylesheet" href="styles/introChartBar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 <body>
+    <div class="background-animation"></div>
     <div class="container">
-        <h1 class="title">Worst of All time cinema</h1>
-        <p class="subtitle">Découvrez le pire du cinéma!</p>
-        <button class="next-button">SUIVANT</button>
+        <div class="content-wrapper">
+            <h1 class="title">
+                <span class="title-top">WOAT CINEMA</span>
+                <span class="title-main">Worst of All Time</span>
+            </h1>
+            <p class="subtitle">Bienvenue dans les bas-fonds du septième art.<br>Les films que l'histoire aurait préféré oublier…</p>
+            <div class="stats-container">
+                <div class="stat-item">
+                    <span class="stat-number">45K+</span>
+                    <span class="stat-label">Films analysés</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">26M+</span>
+                    <span class="stat-label">Notes collectées</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100+</span>
+                    <span class="stat-label">Pays</span>
+                </div>
+            </div>
+            <button class="main-cta">Commencer</button>
+        </div>
     </div>
     <script src="./scripts/introChartBar.js" type="module"></script>
 </body>
