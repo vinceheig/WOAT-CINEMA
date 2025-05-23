@@ -2,7 +2,7 @@
 
 .conclusion-slide {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -53,4 +53,19 @@ body {
     z-index: 0;
     pointer-events: none;
     display: block;
+}
+.recommencer {
+    position: fixed; /* Fixe le bouton à un endroit précis de l'écran */
+    z-index: 10; /* Assurez-vous que ce z-index est supérieur à celui du canvas */
+    bottom: 50px; /* Distance par rapport au bas de l'écran */
+    left: 50%; /* Centre horizontalement */
+    transform: translateX(-50%); /* Centre le bouton par rapport à son propre centre */
+    background-color: #9B6B9E; /* Violet */
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }

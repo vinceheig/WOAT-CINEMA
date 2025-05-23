@@ -8,11 +8,14 @@ export default {
     open: true,
     cors: true,
     hmr: {
-      overlay: false
-    }
+      overlay: false,
+    },
   },
   build: {
     outDir: '../dist',
-    emptyOutDir: true
-  }
-}
+    emptyOutDir: true,
+  },
+  optimizeDeps: {
+    include: ['d3'], // Ajoutez d3 ici pour l'optimisation
+  },
+};
